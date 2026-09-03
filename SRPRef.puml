@@ -1,0 +1,38 @@
+@startuml
+class Car {
+  - String _id
+  - String _model
+  - String _brand
+  + String getId()
+  + String getModel()
+  + String getBrand()
+}
+
+class CarRepository {
+  - List<Car> _cars
+  + List<Car> findAll()
+  + Car findById(String)
+}
+
+class CarFormatter {
+  + String formatNames(List<Car>)
+}
+
+class CarRanker {
+  + Car best(List<Car>)
+}
+
+class CarManager {
+  - CarRepository _repository
+  - CarFormatter _formatter
+  - CarRanker _ranker
+  + Car getFromDb(String)
+  + String getCarsNames()
+  + Car getBestCar()
+}
+
+CarManager --> CarRepository : data access
+CarManager --> CarFormatter : presentation
+CarManager --> CarRanker : business rule
+CarRepository o-- Car
+@enduml
