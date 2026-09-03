@@ -11,7 +11,7 @@ Every module contains:
 | `exercise` | The exercise to solve: code that breaks the principle |
 | `exercise_refactored` | My solution to the exercise |
 
-Alongside each module there are two PlantUML class diagrams at the repo root: `XXX.puml` shows the structure before the refactoring and `XXXRef.puml` after it. The lab statement is in `S O L I D Principles.pdf`.
+Alongside each module there are two PlantUML class diagrams at the repo root: `XXX.puml` shows the structure before the refactoring and `XXXRef.puml` after it.
 
 ## Modules
 
@@ -62,7 +62,6 @@ High-level modules should depend on abstractions, not on low-level details.
 │       └── exercise_refactored/
 ├── *.puml                            class diagrams, before (XXX) and after (XXXRef)
 ├── lib/                              JUnit 4.13.2 and Hamcrest, used by the LSP tests
-└── S O L I D Principles.pdf          lab statement
 ```
 
 ## Running
