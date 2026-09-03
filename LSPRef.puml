@@ -1,0 +1,25 @@
+@startuml
+interface Duck {
+  + void quack()
+  + void swim()
+}
+interface Switchable {
+  + void turnOn()
+  + void turnOff()
+  + boolean isOn()
+}
+class RealDuck
+class ElectronicDuck {
+  - boolean _on
+}
+class Pool {
+  + void run()
+  - void quack(Duck...)
+  - void swim(Duck...)
+  + {static} void main(String[])
+}
+Duck <|.. RealDuck
+Duck <|.. ElectronicDuck
+Switchable <|.. ElectronicDuck
+Pool --> Duck : uses any Duck safely
+@enduml

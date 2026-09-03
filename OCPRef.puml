@@ -1,0 +1,17 @@
+@startuml
+interface ResourcePool {
+  + int findFreeSlot()
+  + void markBusy(int)
+  + void markFree(int)
+}
+class TimeSlotPool
+class SpaceSlotPool
+class ResourceAllocator {
+  + {static} int INVALID_RESOURCE_ID
+  + int allocate(ResourcePool)
+  + void free(ResourcePool, int)
+}
+ResourcePool <|.. TimeSlotPool
+ResourcePool <|.. SpaceSlotPool
+ResourceAllocator --> ResourcePool : depends only on
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+interface Door {
+  + void lock()
+  + void unlock()
+  + void open()
+  + void close()
+}
+interface TimeOutListener {
+  + void timeOutCallback()
+}
+interface ProximityListener {
+  + void proximityCallback()
+}
+class TimedDoor
+class SensingDoor
+class Timer {
+  + void register(long, TimeOutListener)
+}
+class Sensor {
+  + void register(ProximityListener)
+}
+Door <|.. TimedDoor
+TimeOutListener <|.. TimedDoor
+Door <|.. SensingDoor
+ProximityListener <|.. SensingDoor
+Timer --> TimeOutListener
+Sensor --> ProximityListener
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+interface DataSource {
+  + String read()
+}
+interface DataSink {
+  + void write(String)
+}
+class FileSource
+class UrlSource
+class FileSink
+class DatabaseSink
+class MyDatabase {
+  + int write(String)
+}
+class EncodingModule {
+  - DataSource _source
+  - DataSink _sink
+  + void encode()
+}
+class EncodingModuleClient {
+  + {static} void main(String[])
+}
+DataSource <|.. FileSource
+DataSource <|.. UrlSource
+DataSink <|.. FileSink
+DataSink <|.. DatabaseSink
+DatabaseSink --> MyDatabase : adapts
+EncodingModule --> DataSource
+EncodingModule --> DataSink
+EncodingModuleClient ..> EncodingModule : wires
+@enduml
