@@ -11,7 +11,7 @@ Every module contains:
 | `exercise` | The exercise to solve: code that breaks the principle |
 | `exercise_refactored` | My solution to the exercise |
 
-Alongside each module there are two PlantUML class diagrams at the repo root: `XXX.puml` shows the structure before the refactoring and `XXXRef.puml` after it.
+Inside each module folder there are two PlantUML class diagrams: `XXX.puml` shows the structure before the refactoring and `XXXRef.puml` after it.
 
 ## Modules
 
@@ -59,8 +59,8 @@ High-level modules should depend on abstractions, not on low-level details.
 │       ├── example/
 │       ├── example_refactored/
 │       ├── exercise/
-│       └── exercise_refactored/
-├── *.puml                            class diagrams, before (XXX) and after (XXXRef)
+│       ├── exercise_refactored/
+│       └── XXX.puml / XXXRef.puml     class diagrams, before (XXX) and after (XXXRef)
 ├── lib/                              JUnit 4.13.2 and Hamcrest, used by the LSP tests
 ```
 
@@ -80,5 +80,5 @@ The LSP module includes JUnit tests (`RectangleTest`, `SquareTest`) that demonst
 To render a diagram, use any PlantUML tool, for example:
 
 ```bash
-plantuml SRPRef.puml
+plantuml SRP/SRPRef.puml
 ```
